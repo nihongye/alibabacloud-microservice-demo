@@ -30,19 +30,19 @@ public class HelloServiceTest {
 
     //普通的调用
     @Test
-    public void testInvoke() {
+    public void testInvoke()throws Exception {
         TestCase.assertEquals("hello world", helloService.echo("hello world"));
     }
     //泛化调用
     @Test
-    public void testGenericInvoke() {
+    public void testGenericInvoke()throws Exception {
         GenericService service = (GenericService) helloService;
         Object result = service.$invoke("echo", new String[] {"java.lang.String"}, new Object[] {"hello world"});
         TestCase.assertEquals("hello world", result);
     }
     //返回值 Mock
     @Test
-    public void testMock() {
+    public void testMock()throws Exception {
         HelloService mock = Mockito.mock(HelloService.class, AdditionalAnswers.delegatesTo(helloService));
         Mockito.when(mock.echo("")).thenReturn("beta");
         TestCase.assertEquals("beta", mock.echo(""));

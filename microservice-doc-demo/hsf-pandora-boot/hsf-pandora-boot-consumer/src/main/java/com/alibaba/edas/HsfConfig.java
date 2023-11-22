@@ -11,4 +11,7 @@ public class HsfConfig {
     @HSFConsumer(clientTimeout = 3000, serviceVersion = "1.0.0")
     private HelloService helloService;
 
+    @HSFConsumer(clientTimeout = 3000, serviceVersion = "1.0.0")
+    private ProductService productService;
+
 }
